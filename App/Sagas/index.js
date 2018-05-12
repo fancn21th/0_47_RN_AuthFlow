@@ -8,8 +8,4 @@ import todos from './todos'
 /* ------------- API ------------- */
 
 /* ------------- Root Sagas ------------- */
-export default function* root() {
-  yield all([
-    todos(),
-  ])
-}
+export default todos

@@ -1,10 +1,7 @@
 import React from 'react'
-import { View, Text } from 'native-base'
+import { View, Text, Button } from 'native-base'
 import { StyleSheet } from 'react-native'
-import withLogined from '../Auth/withLogined'
-import { connect } from 'react-redux'
 import { withNavigation } from 'react-navigation'
-import { getLogined } from '../Reducers'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,23 +15,21 @@ const styles = StyleSheet.create({
   }
 })
 
-const HomeScreen = () => (
+const HomeScreen = ({ navigation }) => (
   <View style={[styles.container, styles.horizontal]}>
     <Text>
       Home Screen!
     </Text>
+    <Button
+      onPress={() => navigation.navigate('Other')}
+    >
+      <Text>
+        Go to others
+      </Text>
+    </Button>
   </View>
 )
 
-const mapStateToProps = (state) => ({
-  isLogined: getLogined(state)
-})
-
-export default (
-  withNavigation(
-    connect(
-      mapStateToProps,
-      null
-    )(withLogined(HomeScreen))
-  )
+export default withNavigation(
+  HomeScreen
 )

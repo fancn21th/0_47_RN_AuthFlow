@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
+import appReducer, * as fromApp from './app'
 
 /* ------------- Root Reducers ------------- */
 export default combineReducers({
-  todos,
+  app: appReducer,
 })
 
 /* ------------- Root Selector ------------- */
+export const getLogined = (state) => fromApp.getLogined(state.app)

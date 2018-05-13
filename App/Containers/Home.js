@@ -1,6 +1,10 @@
 import React from 'react'
 import { View, Text } from 'native-base'
 import { StyleSheet } from 'react-native'
+import withLogined from '../Auth/withLogined'
+import { connect } from 'react-redux'
+import { withNavigation } from 'react-navigation'
+import { getLogined } from '../Reducers'
 
 const styles = StyleSheet.create({
   container: {
@@ -21,5 +25,18 @@ const HomeScreen = () => (
     </Text>
   </View>
 )
+
+const mapStateToProps = (state) => ({
+  isLogined: getLogined(state)
+})
+
+// export default withLogined(
+//   withNavigation(
+//     connect(
+//       mapStateToProps,
+//       null
+//     )(HomeScreen)
+//   )
+// )
 
 export default HomeScreen

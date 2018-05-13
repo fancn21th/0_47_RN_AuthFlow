@@ -1,9 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text } from 'native-base'
 import { StyleSheet } from 'react-native'
-import { connect } from 'react-redux'
-import { withNavigation } from 'react-navigation'
-import { getLogined } from '../Reducers'
 import withLogined from '../Auth/withLogined'
 
 const styles = StyleSheet.create({
@@ -18,23 +15,26 @@ const styles = StyleSheet.create({
   }
 })
 
-const OtherScreen = () => (
-  <View style={[styles.container, styles.horizontal]}>
-    <Text>
-      Other Screen!
-    </Text>
-  </View>
-)
+// const OtherScreen = () => (
+//   <View style={[styles.container, styles.horizontal]}>
+//     <Text>
+//       Other Screen!
+//     </Text>
+//   </View>
+// )
 
-const mapStateToProps = (state) => ({
-  isLogined: getLogined(state)
-})
+class OtherScreen extends Component {
+  render() {
+   return (
+     <View style={[styles.container, styles.horizontal]}>
+       <Text>
+         Other Screen!
+       </Text>
+     </View>
+   )
+  }
+}
 
-export default (
-  withNavigation(
-    connect(
-      mapStateToProps,
-      null
-    )(withLogined(OtherScreen))
-  )
-)
+
+export default withLogined(OtherScreen)
+

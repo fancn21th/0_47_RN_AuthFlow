@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
-import navigationReducer from './navigation'
-import statusReducer, * as fromStatus from './status'
+import navigation from './navigation'
+import status, * as fromStatus from './status'
+import auth from './auth'
+
 
 export default combineReducers({
-  navigation: navigationReducer,
-  status: statusReducer,
+  navigation,
+  status,
+  auth,
 })
 
 /* ------------- Selector ------------- */

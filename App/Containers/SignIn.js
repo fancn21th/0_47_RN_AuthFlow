@@ -1,25 +1,21 @@
 import React from 'react'
-import { View, Text } from 'native-base'
-import { StyleSheet } from 'react-native'
+import SignIn from '../Components/SignIn'
+import { connect } from 'react-redux'
+import { REQUEST_LOGIN } from '../Actions/Types/Login'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10
+const mapStateToProps = (state) => ({})
+
+const mapDispatchToProps = (dispatch) => ({
+  onSignIn(email, password) {
+    dispatch({
+      type: REQUEST_LOGIN,
+      payload: {
+        email,
+        password,
+      }
+    })
   }
 })
 
-const SingInScreen = () => (
-  <View style={[styles.container, styles.horizontal]}>
-    <Text>
-      SingIn Screen!
-    </Text>
-  </View>
-)
 
-export default SingInScreen
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

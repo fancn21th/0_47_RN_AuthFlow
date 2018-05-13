@@ -18,6 +18,9 @@
 
   {
     app: {
+      auth: {
+        token: '@@@@@@',
+      },
       status: {
         logined: false,
       },

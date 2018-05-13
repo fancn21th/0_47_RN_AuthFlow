@@ -6,17 +6,14 @@ import { withNavigation } from 'react-navigation'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   }
 })
 
 const HomeScreen = ({ navigation }) => (
-  <View style={[styles.container, styles.horizontal]}>
+  <View style={[styles.container]}>
     <Text>
       Home Screen!
     </Text>
@@ -24,7 +21,14 @@ const HomeScreen = ({ navigation }) => (
       onPress={() => navigation.navigate('Other')}
     >
       <Text>
-        Go to others
+        Go to other
+      </Text>
+    </Button>
+    <Button
+      onPress={() => navigation.navigate('Another')}
+    >
+      <Text>
+        Go to another
       </Text>
     </Button>
   </View>

@@ -8,3 +8,5 @@ export default combineReducers({
 
 /* ------------- Root Selector ------------- */
 export const getLogined = (state) => fromApp.getLogined(state.app)
+
+export const getLastScreen = (state) => fromApp.getLastScreen(state.app)

@@ -1,17 +1,15 @@
 import { combineReducers } from 'redux'
 import { REDIRECTION } from '../../../Actions/Types/Navigation'
 
-const navigation = () => {
-  const lastScreen = (state = null, action) => {
-    switch (action.type) {
-      case REDIRECTION:
-        return action.payload.screen
-    }
+const lastScreen = (state = null, action) => {
+  switch (action.type) {
+    case REDIRECTION:
+      return action.payload.screen
+    default:
+      return null
   }
-
-  return combineReducers({
-    lastScreen,
-  })
 }
 
-export default navigation
+export default combineReducers({
+  lastScreen,
+})

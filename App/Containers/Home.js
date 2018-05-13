@@ -30,13 +30,11 @@ const mapStateToProps = (state) => ({
   isLogined: getLogined(state)
 })
 
-// export default withLogined(
-//   withNavigation(
-//     connect(
-//       mapStateToProps,
-//       null
-//     )(HomeScreen)
-//   )
-// )
-
-export default HomeScreen
+export default (
+  withNavigation(
+    connect(
+      mapStateToProps,
+      null
+    )(withLogined(HomeScreen))
+  )
+)
